@@ -148,7 +148,8 @@ public class Main {
 		Timer timer = new Timer(5000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				popup.setLocationRelativeTo(frame);
+				Point frameLocation = frame.getLocationOnScreen();
+				popup.setLocation(frameLocation.x + (int)(Math.random()*350), frameLocation.y + (int)(Math.random()*250));
 				popup.setVisible(true);
 			}
 		});
@@ -170,6 +171,7 @@ public class Main {
 		closebtn.setForeground(Color.WHITE);
 		closebtn.setFont(new Font("Arial", Font.BOLD, 8));
 		closebtn.setText("X");
+		closebtn.setFocusable(false);
 		return closebtn;
 	}
 
